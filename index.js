@@ -1,18 +1,15 @@
-window.onload = replacePlaceholder;
-
-let today = new Date().toLocaleDateString();
-
-function replacePlaceholder() {
-    document.getElementById('today-value').innerHTML = today;
-}
-
 function count() {
-    let addDays = document.getElementById('add-value').value;
-    if (addDays.length < 1) {
-        alert('Add number of days')
+    let initialDate = new Date(document.getElementById('date-value').value);
+    if (initialDate.length < 1) {
+        alert('Please specify initial date')
     } else {
-        let futureDateMs = Date.now() + parseInt(addDays) * 86400000;
-        let futureDate = new Date(futureDateMs).toLocaleDateString()
-        document.getElementById('new-value').innerHTML = futureDate;
+        let addDays = document.getElementById('add-value').value;
+        if (addDays.length < 1) {
+            alert('Please specify number of days to add')
+        } else {
+            let futureDateMs = initialDate.getTime() + (parseInt(addDays) + 1) * 86400000;
+            let futureDate = new Date(futureDateMs).toLocaleDateString()
+            document.getElementById('new-value').innerHTML = futureDate;
+        }
     }
 }
