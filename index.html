@@ -2,37 +2,55 @@
 <html>
 
 <head>
-    <title>Add Days App</title>
-    <link rel="shortcut icon" href="favicon.ico" />
+    <title>Random Raffle</title>
+    <link rel="shortcut icon" href="ticket.png" />
     <link rel="stylesheet" href="style.css" />
     <script src="index.js"></script>
 </head>
 
 <body>
-    <h1 class="text-center" id="ws-title">Add Days App by Arthur</h1>
+    <h1 class="text-center" id="ws-title">Random Raffle</h1>
 
-    <div class="text-center">
-        <a id="ts-link" href="https://www.techstart.dev/" target="_blank">TechStart.dev</a>
+    <div class="text-center mt-2 mb-3">
+        <img class="img-lg" id="cal-icon" alt="Raffle Ticket icon" src="ticket.png" />
     </div>
 
-    <div class="text-center mt-2">
-        <img class="img-lg" id="cal-icon" alt="Calendar image" src="calendar.webp" />
-    </div>
+    <div id='raffle-holder'>
+        <div class="card-holder">
+            <div class="card-body">
+                <div class="text-center card-title mb-2" id="date-title">Raffle configuration:</div>
+                <div>
+                    <span>Number of winners: </span>
+                    <input id="no-of-winners" class="winners-input" type="number" min="1" max="999" />
+                </div>
+                <!-- <div class="mt-1">
+                <input type="radio" id="male" name="gender" value="places" checked>
+                <label for="male">With places</label>
+                <input type="radio" id="female" name="gender" value="equal">
+                <label for="female">Same prizes</label>
+            </div> -->
+            </div>
+        </div>
 
-    <h3 class="text-center" id="date-title">Date:</h3>
-    <div class="text-center text-yellow">
-        <input type="date" id="date-value" />
-    </div>
+        <div class="card-holder mt-3">
+            <div class="card-body">
+                <div class="text-center card-title mb-2" id="date-title">Participants:</div>
+                <div class="mb-1">
+                    <span>
+                        Enter participants into the text
+                        <br />
+                        area below sepated by comma
+                    </span>
+                </div>
+                <div>
+                    <textarea id="participants" class="participants-area" rows=12></textarea>
+                </div>
+            </div>
+        </div>
 
-    <h3 class="text-center" id="add-title">Add Days:</h3>
-    <div class="text-center">
-        <input type="number" class="input-number" id="add-value" />
-        <button id="add-button" onclick="count()">Count</button>
-    </div>
-
-    <h3 class="text-center" id="new-title">New Date:</h3>
-    <div class="text-center text-yellow" id="new-value">
-        ...
+        <div class="text-center mt-3">
+            <button onclick="validation()">Raffle!</button>
+        </div>
     </div>
 
 </body>
